@@ -19,6 +19,19 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Dbconnect.con.Open();
+                string query = "select username from logininfo where id=1";
+
+            }
+            catch (Exception)
+            {
+                Dbconnect.con.Close();
+                throw;
+            }
+            Dbconnect.con.Close();
+            
             Console.WriteLine("test");
         }
 

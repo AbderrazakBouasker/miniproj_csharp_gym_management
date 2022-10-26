@@ -96,11 +96,30 @@
     <Compile Include="Addmember.Designer.cs">
       <DependentUpon>Addmember.cs</DependentUpon>
     </Compile>
+    <Compile Include="Creatuserscreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Creatuserscreen.Designer.cs">
+      <DependentUpon>Creatuserscreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dbconnect.cs" />
+    <Compile Include="Editmemberscreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editmemberscreen.Designer.cs">
+      <DependentUpon>Editmemberscreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loginscreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loginscreen.Designer.cs">
+      <DependentUpon>Loginscreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Mainscreen.cs">
       <SubType>UserControl</SubType>
@@ -116,11 +135,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recoverscreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recoverscreen.Designer.cs">
+      <DependentUpon>Recoverscreen.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Addmember.resx">
       <DependentUpon>Addmember.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Creatuserscreen.resx">
+      <DependentUpon>Creatuserscreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editmemberscreen.resx">
+      <DependentUpon>Editmemberscreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loginscreen.resx">
+      <DependentUpon>Loginscreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mainscreen.resx">
       <DependentUpon>Mainscreen.cs</DependentUpon>
@@ -138,6 +172,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Recoverscreen.resx">
+      <DependentUpon>Recoverscreen.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
