@@ -63,5 +63,13 @@ namespace WindowsFormsApp1.dao
 
         }
 
+        public void creatuser(string username,string password,string qmovie,string qmusic)
+        {
+            string query = "INSERT INTO logininfo (username, password, qmovie, qmusic) VALUES ('"+username+"','"+password+"','"+qmovie+"','"+qmusic+"')";
+            SqlCommand sqlCommand = new SqlCommand(query,Dbconnect.con);
+            sqlCommand.ExecuteNonQuery();
+            Dbconnect.con.Close();
+        }
+
     }
 }
