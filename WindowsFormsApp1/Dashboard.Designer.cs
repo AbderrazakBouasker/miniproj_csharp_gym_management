@@ -36,6 +36,8 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.addmember1 = new WindowsFormsApp1.Addmember();
+            this.mainscreen1 = new WindowsFormsApp1.Mainscreen();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -136,14 +138,32 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // addmember1
+            // 
+            this.addmember1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.addmember1.Location = new System.Drawing.Point(161, 99);
+            this.addmember1.Name = "addmember1";
+            this.addmember1.Size = new System.Drawing.Size(900, 519);
+            this.addmember1.TabIndex = 3;
+            // 
+            // mainscreen1
+            // 
+            this.mainscreen1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.mainscreen1.Location = new System.Drawing.Point(161, 99);
+            this.mainscreen1.Name = "mainscreen1";
+            this.mainscreen1.Size = new System.Drawing.Size(900, 519);
+            this.mainscreen1.TabIndex = 2;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.ClientSize = new System.Drawing.Size(1062, 619);
+            this.Controls.Add(this.mainscreen1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.addmember1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -165,6 +185,8 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel Sidepanel;
         private System.Windows.Forms.Button button2;
+        private Mainscreen mainscreen1;
+        private Addmember addmember1;
     }
 }
 

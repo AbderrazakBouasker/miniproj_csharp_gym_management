@@ -15,24 +15,15 @@ namespace WindowsFormsApp1
         public Dashboard()
         {
             InitializeComponent();
+            mainscreen1.BringToFront();
+            Sidepanel.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Dbconnect.con.Open();
-                string query = "select username from logininfo where id=1";
+            mainscreen1.BringToFront();
+            Sidepanel.Hide();
 
-            }
-            catch (Exception)
-            {
-                Dbconnect.con.Close();
-                throw;
-            }
-            Dbconnect.con.Close();
-            
-            Console.WriteLine("test");
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -42,19 +33,25 @@ namespace WindowsFormsApp1
 
         private void button3_Click(object sender, EventArgs e)
         { 
+            Sidepanel.Show();
             Sidepanel.Height=button3.Height;
             Sidepanel.Top = button3.Top;
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            Sidepanel.Show();
             Sidepanel.Height = button4.Height;
             Sidepanel.Top = button4.Top;
+            addmember1.BringToFront();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Loginscreen loginscreen=new Loginscreen();
+            loginscreen.Show();
+            this.Close();
         }
     }
 }
