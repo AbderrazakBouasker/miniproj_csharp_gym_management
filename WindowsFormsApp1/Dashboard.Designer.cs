@@ -152,7 +152,7 @@
             this.mainscreen1.Location = new System.Drawing.Point(161, 99);
             this.mainscreen1.Name = "mainscreen1";
             this.mainscreen1.Size = new System.Drawing.Size(900, 519);
-            this.mainscreen1.TabIndex = 2;
+            this.mainscreen1.TabIndex = 4;
             // 
             // Dashboard
             // 
@@ -185,8 +185,8 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel Sidepanel;
         private System.Windows.Forms.Button button2;
-        private Mainscreen mainscreen1;
         private Addmember addmember1;
+        private Mainscreen mainscreen1;
     }
 }
 

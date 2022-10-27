@@ -103,6 +103,7 @@
       <DependentUpon>Creatuserscreen.cs</DependentUpon>
     </Compile>
     <Compile Include="dao\Logindao.cs" />
+    <Compile Include="dao\Maindao.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>

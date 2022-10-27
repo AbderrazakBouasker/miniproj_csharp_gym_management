@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.dao;
 
 namespace WindowsFormsApp1
 {
@@ -15,6 +16,9 @@ namespace WindowsFormsApp1
         public Mainscreen()
         {
             InitializeComponent();
+            Maindao maindao= new Maindao();
+            textBox1.Text=maindao.getmemcount();
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
