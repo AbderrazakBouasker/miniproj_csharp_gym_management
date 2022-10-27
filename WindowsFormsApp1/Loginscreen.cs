@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Google.Protobuf.WellKnownTypes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,7 +23,7 @@ namespace WindowsFormsApp1
         {
             if (textBox1.Text=="" || textBox2.Text=="")
             {
-                label3.Text = "Please fill all fields";
+                MessageBox.Show("Please fill all fields");
             }
             else
             {
@@ -36,7 +37,7 @@ namespace WindowsFormsApp1
                 }
                 else
                 {
-                    label3.Text = "Wrong login info";
+                    MessageBox.Show("Wrong login info");
                 }
             }
         }
@@ -51,6 +52,18 @@ namespace WindowsFormsApp1
             {
                 textBox2.UseSystemPasswordChar=true;
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Recoverscreen recoverscreen=new Recoverscreen();
+            recoverscreen.Show();
+            this.Hide();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

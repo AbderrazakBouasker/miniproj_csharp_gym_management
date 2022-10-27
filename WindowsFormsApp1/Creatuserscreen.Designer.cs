@@ -174,6 +174,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Creatuserscreen";
             this.Text = "Creatuserscreen";
             this.ResumeLayout(false);
