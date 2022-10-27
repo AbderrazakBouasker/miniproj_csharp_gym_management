@@ -44,5 +44,24 @@ namespace WindowsFormsApp1.dao
 
         }
 
+        public bool checkuserexist()
+        {
+            string query = "Select * FROM logininfo ";
+            SqlDataAdapter reader = new SqlDataAdapter(query, Dbconnect.con);
+            DataTable dataTable = new DataTable();
+            reader.Fill(dataTable);
+            if (dataTable.Rows.Count > 0)
+            {
+                Dbconnect.con.Close();
+                return true;
+            }
+            else
+            {
+                Dbconnect.con.Close();
+                return false;
+            }
+
+        }
+
     }
 }

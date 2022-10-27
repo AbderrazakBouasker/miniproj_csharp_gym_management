@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.dao;
 
 namespace WindowsFormsApp1
 {
@@ -27,9 +28,20 @@ namespace WindowsFormsApp1
             if (panel1.Width >= 436)
             {
                 timer1.Stop();
-                Loginscreen loginscreen = new Loginscreen();
-                loginscreen.Show();
-                this.Hide();
+                Logindao logindao = new Logindao();
+                if (logindao.checkuserexist())
+                {
+                    Loginscreen loginscreen = new Loginscreen();
+                    loginscreen.Show();
+                    this.Hide();
+                }
+                else {
+                    Creatuserscreen creatuserscreen= new Creatuserscreen();
+                    creatuserscreen.Show();
+                    this.Hide();
+                }
+                
+                
             }
         }
     }
