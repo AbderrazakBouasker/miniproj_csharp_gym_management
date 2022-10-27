@@ -38,9 +38,9 @@
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label1.Location = new System.Drawing.Point(12, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(299, 25);
+            this.label1.Size = new System.Drawing.Size(134, 25);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Members list and informations";
+            this.label1.Text = "Members list";
             // 
             // Memberslist
             // 

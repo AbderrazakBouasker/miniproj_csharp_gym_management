@@ -102,6 +102,7 @@
     <Compile Include="Creatuserscreen.Designer.cs">
       <DependentUpon>Creatuserscreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="dao\Logindao.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +115,12 @@
     </Compile>
     <Compile Include="Editmemberscreen.Designer.cs">
       <DependentUpon>Editmemberscreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="loadingscreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="loadingscreen.Designer.cs">
+      <DependentUpon>loadingscreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Loginscreen.cs">
       <SubType>Form</SubType>
@@ -152,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editmemberscreen.resx">
       <DependentUpon>Editmemberscreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="loadingscreen.resx">
+      <DependentUpon>loadingscreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Loginscreen.resx">
       <DependentUpon>Loginscreen.cs</DependentUpon>
@@ -193,8 +203,12 @@
     <None Include="Resources\Gym Manager Logo %281%29 %281%29 %281%29.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\GymManagerLogo.png" />
     <Content Include="Resources\silhouette1.png" />
     <Content Include="Resources\slim.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
