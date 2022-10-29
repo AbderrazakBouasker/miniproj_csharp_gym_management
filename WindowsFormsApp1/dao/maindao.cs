@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace WindowsFormsApp1.dao
 {
@@ -47,5 +48,21 @@ namespace WindowsFormsApp1.dao
 
         }*/
 
+        public void addmember(string idnumber,string name,string lastname,string companyname,string paymentreduction,string startdate,string enddate)
+        {
+            try
+            {
+                string query = "insert into members (idnumber,name,lastname,companyname,paymentreduction,startdate,enddate) values (" + idnumber + ",'" + name + "','" + lastname + "','" + companyname + "', " + paymentreduction + " ,'" + startdate + "','" + enddate + "')";
+                Console.WriteLine(query);
+                SqlCommand sqlCommand = new SqlCommand(query, Dbconnect.con);
+                sqlCommand.ExecuteNonQuery();
+                Dbconnect.con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                Dbconnect.con.Close();
+            }
+        }
     }
 }
