@@ -27,6 +27,10 @@ namespace WindowsFormsApp1
             textBox1.Text = maindao.getmemcount();
             textBox2.Text = maindao.getavgincome();
         }
+        public void setmaintable()
+        {
+
+        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

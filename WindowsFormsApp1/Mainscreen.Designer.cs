@@ -37,10 +37,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
             this.Names = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Expirationdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -148,21 +148,6 @@
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // Names
-            // 
-            this.Names.HeaderText = "Names";
-            this.Names.Name = "Names";
-            // 
-            // Lastname
-            // 
-            this.Lastname.HeaderText = "Lastname";
-            this.Lastname.Name = "Lastname";
-            // 
-            // Expirationdate
-            // 
-            this.Expirationdate.HeaderText = "Expiration date";
-            this.Expirationdate.Name = "Expirationdate";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -173,6 +158,23 @@
             this.label3.Size = new System.Drawing.Size(248, 24);
             this.label3.TabIndex = 0;
             this.label3.Text = "Nearly expired subscriptions";
+            // 
+            // Names
+            // 
+            this.Names.DataPropertyName = "name";
+            this.Names.HeaderText = "Names";
+            this.Names.Name = "Names";
+            // 
+            // Lastname
+            // 
+            this.Lastname.DataPropertyName = "lastname";
+            this.Lastname.HeaderText = "Lastname";
+            this.Lastname.Name = "Lastname";
+            // 
+            // Expirationdate
+            // 
+            this.Expirationdate.HeaderText = "Expiration date";
+            this.Expirationdate.Name = "Expirationdate";
             // 
             // Mainscreen
             // 
