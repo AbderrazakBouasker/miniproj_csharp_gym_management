@@ -19,6 +19,7 @@ namespace WindowsFormsApp1
             Maindao maindao= new Maindao();
             textBox1.Text=maindao.getmemcount();
             textBox2.Text=maindao.getavgincome();
+            setmaintable();
             
         }
         public void refresh()
@@ -26,10 +27,14 @@ namespace WindowsFormsApp1
             Maindao maindao = new Maindao();
             textBox1.Text = maindao.getmemcount();
             textBox2.Text = maindao.getavgincome();
+            setmaintable();
         }
         public void setmaintable()
         {
-
+            DataTable dt = new DataTable();
+            Maindao maindao=new Maindao();
+            dt =maindao.maintable();
+            dataGridView1.DataSource = dt;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
