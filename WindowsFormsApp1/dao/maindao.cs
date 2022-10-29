@@ -30,7 +30,7 @@ namespace WindowsFormsApp1.dao
         public string getmemcount()
         {
             string count = "";
-            string query="select count(*) as 'num' from members";
+            string query="select count(id) as 'num' from members";
             SqlCommand sqlCommand = new SqlCommand(query,Dbconnect.con);
             SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand);
             DataTable dataTable = new DataTable();
@@ -43,10 +43,48 @@ namespace WindowsFormsApp1.dao
             return count;
         }
 
-        /*public string getavgincome()
+        public string getavgincome() 
         {
-
-        }*/
+            DateTime localDate = DateTime.Now;
+            DateTime enddate;
+            int income = 0;
+            int compareday = 0;
+            int comparemonth = 0;
+            int compareyear = 0;
+            string query = "select enddate from members";
+            SqlCommand sqlCommand =new SqlCommand(query,Dbconnect.con);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlCommand);
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            foreach (DataRow dataRow in dataTable.Rows)
+            {
+                string tempdate= dataRow["enddate"].ToString();
+                enddate=DateTime.Parse(tempdate);
+                compareyear=enddate.Year.CompareTo(localDate.Year);
+                comparemonth=enddate.Month.CompareTo(localDate.Month);
+                compareday=enddate.Day.CompareTo(localDate.Day);
+                if (compareyear > 0)
+                {
+                    income += 60;
+                }else if (compareyear == 0)
+                {
+                    if (comparemonth>0)
+                    {
+                        income += 60;
+                    }
+                    else if (comparemonth==0)
+                    {
+                        if (compareday > 0)
+                        {
+                            income += 60;
+                        }
+                    }
+                }
+            }
+            Dbconnect.con.Close();
+            return income.ToString();
+            
+        }
 
         public void addmember(string idnumber,string name,string lastname,string companyname,string paymentreduction,string startdate,string enddate)
         {

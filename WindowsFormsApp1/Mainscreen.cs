@@ -18,7 +18,14 @@ namespace WindowsFormsApp1
             InitializeComponent();
             Maindao maindao= new Maindao();
             textBox1.Text=maindao.getmemcount();
+            textBox2.Text=maindao.getavgincome();
             
+        }
+        public void refresh()
+        {
+            Maindao maindao = new Maindao();
+            textBox1.Text = maindao.getmemcount();
+            textBox2.Text = maindao.getavgincome();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

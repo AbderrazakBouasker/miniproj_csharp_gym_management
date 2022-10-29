@@ -20,6 +20,8 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            DateTime localDate = DateTime.Now;
+            Console.WriteLine(localDate.Year);
             if (textBox1.Text=="" || textBox2.Text == "" || textBox3.Text == "")
             {
                 MessageBox.Show("Please fill all necessary fields");

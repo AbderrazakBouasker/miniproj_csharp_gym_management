@@ -21,6 +21,7 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            mainscreen1.refresh();
             mainscreen1.BringToFront();
             Sidepanel.Hide();
 
