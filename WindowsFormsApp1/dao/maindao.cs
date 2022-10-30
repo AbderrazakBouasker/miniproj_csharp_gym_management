@@ -161,6 +161,22 @@ namespace WindowsFormsApp1.dao
                 throw;
             }
         }
+        public void deletemember(string ids)
+        {
+            try
+            {
+                string query = "delete from members where id in (" + ids + ")";
+                SqlCommand cmd = new SqlCommand(query, Dbconnect.con);
+                cmd.ExecuteNonQuery();
+                Dbconnect.con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                Dbconnect.con.Close();
+                throw;
+            }
+        }
 
     }
 }
