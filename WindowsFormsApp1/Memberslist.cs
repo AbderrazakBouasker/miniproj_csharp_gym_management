@@ -31,9 +31,13 @@ namespace WindowsFormsApp1
             {
                 if (dataGridView1.Rows[i].Cells[7].Value!=null)
                 {
-                    ver= true;
-                    break;
+                    if ((bool)dataGridView1.Rows[i].Cells[7].Value == true)
+                    {
+                        ver = true;
+                        break;
+                    }
                 }
+                
             }
             return ver;
         }
@@ -47,43 +51,29 @@ namespace WindowsFormsApp1
                 {
                     if (dataGridView1.Rows[i].Cells[7].Value != null)
                     {
-                        ids += dataGridView1.Rows[i].Cells[8].Value;
-                        ids += ",";
+                        if ((bool)dataGridView1.Rows[i].Cells[7].Value == true)
+                        {
+                            ids += dataGridView1.Rows[i].Cells[8].Value;
+                            ids += ",";
+                        }
                     }
                 }
-                Console.WriteLine(ids);
+
+                ids=ids.Remove(ids.Length-1,1);
+                DialogResult dialogResult= MessageBox.Show("Are you sure you want to delete ?", "Confirmation window", MessageBoxButtons.YesNo);
+                if (dialogResult==DialogResult.Yes)
+                {
+                    Maindao maindao = new Maindao();
+                    maindao.deletemember(ids);
+                    MessageBox.Show("member(s) deleted successfully");
+                    refresh();
+                }
             }
             else
             {
                 MessageBox.Show("Please select a member to delete");
             }
-            /*string ids = "";
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
-            {
-                //bool boxchecked = (bool)dataGridView1.Rows[i].Cells[7].Value;
-                
-                if (dataGridView1.Rows[i].Cells[7].Value!=null)
-                {
-                    
-                }
-                else
-                {
-                    boxchecked = false;
-                }
-                if (boxchecked)
-                {
-                    DialogResult result = MessageBox.Show("Are you sure you want to delete ?", "Confirmation", MessageBoxButtons.YesNo);
-                    if (result == DialogResult.Yes)
-                    {
-
-                    }
-                }
-            }*/
         }
 
-        private void dataGridView1_Enter(object sender, EventArgs e)
-        {
-            
-        }
     }
 }

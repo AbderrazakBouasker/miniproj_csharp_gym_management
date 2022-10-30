@@ -91,7 +91,6 @@ namespace WindowsFormsApp1.dao
             try
             {
                 string query = "insert into members (idnumber,name,lastname,companyname,paymentreduction,startdate,enddate) values (" + idnumber + ",'" + name + "','" + lastname + "','" + companyname + "', " + paymentreduction + " ,'" + startdate + "','" + enddate + "')";
-                Console.WriteLine(query);
                 SqlCommand sqlCommand = new SqlCommand(query, Dbconnect.con);
                 sqlCommand.ExecuteNonQuery();
                 Dbconnect.con.Close();
@@ -107,11 +106,51 @@ namespace WindowsFormsApp1.dao
         {
             try
             {
-                string query = "select name,lastname from members";
+                string tempstartdate;
+                string tempenddate;
+                DateTime startdate;
+                DateTime enddate;
+                string query = "select name,lastname,startdate,enddate from members";
                 SqlCommand sqlCommand1 = new SqlCommand(query, Dbconnect.con);
                 SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand1);
                 DataTable dataTable = new DataTable();
+                DataTable dataTable2 = new DataTable();
+                dataTable2.Columns.Add("name", typeof(string));
+                dataTable2.Columns.Add("lastname",typeof(string));
+                dataTable2.Columns.Add("expirationdate", typeof(DateTime));
                 adapter.Fill(dataTable);
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    tempstartdate = row["startdate"].ToString();
+                    tempenddate = row["enddate"].ToString();
+                    startdate = DateTime.Parse(tempstartdate);
+                    enddate = DateTime.Parse(tempenddate);
+                    if ((enddate-startdate).TotalDays <= 3)
+                    {
+                        dataTable2.Rows.Add(row["name"], row["lastname"], row["enddate"]);
+                    }
+                }
+                Dbconnect.con.Close();
+                return dataTable2;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                Dbconnect.con.Close();
+                throw;
+            }
+            
+        }
+
+        public DataTable fillmembertab()
+        {
+            try
+            {
+                string query = "select * from members";
+                SqlCommand sqlCommand = new SqlCommand(query, Dbconnect.con);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
                 Dbconnect.con.Close();
                 return dataTable;
             }
@@ -119,9 +158,24 @@ namespace WindowsFormsApp1.dao
             {
                 MessageBox.Show(ex.Message);
                 Dbconnect.con.Close();
-                return null;
+                throw;
             }
-            
+        }
+        public void deletemember(string ids)
+        {
+            try
+            {
+                string query = "delete from members where id in (" + ids + ")";
+                SqlCommand cmd = new SqlCommand(query, Dbconnect.con);
+                cmd.ExecuteNonQuery();
+                Dbconnect.con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                Dbconnect.con.Close();
+                throw;
+            }
         }
 
     }
