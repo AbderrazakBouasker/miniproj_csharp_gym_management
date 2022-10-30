@@ -38,6 +38,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.addmember1 = new WindowsFormsApp1.Addmember();
             this.mainscreen1 = new WindowsFormsApp1.Mainscreen();
+            this.memberslist1 = new WindowsFormsApp1.Memberslist();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -154,12 +155,21 @@
             this.mainscreen1.Size = new System.Drawing.Size(900, 519);
             this.mainscreen1.TabIndex = 4;
             // 
+            // memberslist1
+            // 
+            this.memberslist1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.memberslist1.Location = new System.Drawing.Point(161, 99);
+            this.memberslist1.Name = "memberslist1";
+            this.memberslist1.Size = new System.Drawing.Size(900, 519);
+            this.memberslist1.TabIndex = 5;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.ClientSize = new System.Drawing.Size(1062, 619);
+            this.Controls.Add(this.memberslist1);
             this.Controls.Add(this.mainscreen1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -187,6 +197,7 @@
         private System.Windows.Forms.Button button2;
         private Addmember addmember1;
         private Mainscreen mainscreen1;
+        private Memberslist memberslist1;
     }
 }
 

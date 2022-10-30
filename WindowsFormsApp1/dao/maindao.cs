@@ -137,9 +137,29 @@ namespace WindowsFormsApp1.dao
             {
                 MessageBox.Show(ex.Message);
                 Dbconnect.con.Close();
-                return null;
+                throw;
             }
             
+        }
+
+        public DataTable fillmembertab()
+        {
+            try
+            {
+                string query = "select * from members";
+                SqlCommand sqlCommand = new SqlCommand(query, Dbconnect.con);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                Dbconnect.con.Close();
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                Dbconnect.con.Close();
+                throw;
+            }
         }
 
     }

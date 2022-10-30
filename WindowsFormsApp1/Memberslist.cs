@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.dao;
 
 namespace WindowsFormsApp1
 {
@@ -15,8 +16,14 @@ namespace WindowsFormsApp1
         public Memberslist()
         {
             InitializeComponent();
+            refresh();
         }
-
+        public void refresh()
+        {
+            Maindao maindao = new Maindao();
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.DataSource = maindao.fillmembertab();
+        }
         
     }
 }

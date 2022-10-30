@@ -16,10 +16,8 @@ namespace WindowsFormsApp1
         public Mainscreen()
         {
             InitializeComponent();
-            Maindao maindao= new Maindao();
-            textBox1.Text=maindao.getmemcount();
-            textBox2.Text=maindao.getavgincome();
             setmaintable();
+            refresh();
             
         }
         public void refresh()

@@ -37,6 +37,8 @@ namespace WindowsFormsApp1
             Sidepanel.Show();
             Sidepanel.Height=button3.Height;
             Sidepanel.Top = button3.Top;
+            memberslist1.BringToFront();
+            memberslist1.refresh();
             
         }
 
