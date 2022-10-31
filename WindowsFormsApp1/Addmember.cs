@@ -42,7 +42,6 @@ namespace WindowsFormsApp1
                     tempbox5 = "null";
                 }
                 Maindao maindao = new Maindao();
-                Console.WriteLine(monthCalendar1.SelectionRange.Start.ToShortDateString());
                 maindao.addmember(textBox3.Text, textBox1.Text, textBox2.Text, tempbox4, tempbox5, monthCalendar1.SelectionRange.Start.ToShortDateString(), monthCalendar2.SelectionRange.Start.ToShortDateString());
             }
         }

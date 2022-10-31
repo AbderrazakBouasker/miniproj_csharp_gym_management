@@ -181,7 +181,7 @@ namespace WindowsFormsApp1.dao
         {
             try
             {
-                String query = "UPDATE members SET id =" + id + ", idnumber = " + idnumber + ", name ='" + name + "' , lastname ='" + lastname + "', companyname ='" + company + "', paymentreduction =" + reduction + ", startdate ='" + startdate + "', enddate = '" + enddate + "' WHERE id =" + id;
+                String query = "UPDATE members SET idnumber = " + idnumber + ", name ='" + name + "' , lastname ='" + lastname + "', companyname ='" + company + "', paymentreduction =" + reduction + ", startdate ='" + startdate + "', enddate = '" + enddate + "' WHERE id =" + id;
                 SqlCommand sqlCommand = new SqlCommand(query, Dbconnect.con);
                 sqlCommand.ExecuteNonQuery();
                 Dbconnect.con.Close();

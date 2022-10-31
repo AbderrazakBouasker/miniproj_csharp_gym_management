@@ -77,7 +77,32 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            if (checkboxes())
+            {
+                for (int i = 0; i < dataGridView1.RowCount; i++)
+                {
+                    if (dataGridView1.Rows[i].Cells[7].Value!=null)
+                    {
+                        if ((bool)dataGridView1.Rows[i].Cells[7].Value==true)
+                        {
+                            string idnumber = ""+ dataGridView1.Rows[i].Cells[0].Value;
+                            string name = ""+ dataGridView1.Rows[i].Cells[1].Value;
+                            string lastname = "" +dataGridView1.Rows[i].Cells[2].Value;
+                            string company = "" +dataGridView1.Rows[i].Cells[3].Value;
+                            string reduction = "" + dataGridView1.Rows[i].Cells[4].Value;
+                            string startdate = "" + dataGridView1.Rows[i].Cells[5].Value;
+                            string enddate = "" + dataGridView1.Rows[i].Cells[6].Value;
+                            string id = "" + dataGridView1.Rows[i].Cells[8].Value;
+                            Editmemberscreen editmemberscreen = new Editmemberscreen(id,idnumber,name,lastname,company,reduction,startdate,enddate);
+                            editmemberscreen.Show();
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a member to edit");
+            }
         }
     }
 }
