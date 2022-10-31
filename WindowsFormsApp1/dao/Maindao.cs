@@ -177,6 +177,22 @@ namespace WindowsFormsApp1.dao
                 throw;
             }
         }
+        public void editmember(string id,string idnumber,string name,string lastname,string company,string reduction,string startdate,string enddate)
+        {
+            try
+            {
+                String query = "UPDATE members SET idnumber = " + idnumber + ", name ='" + name + "' , lastname ='" + lastname + "', companyname ='" + company + "', paymentreduction =" + reduction + ", startdate ='" + startdate + "', enddate = '" + enddate + "' WHERE id =" + id;
+                SqlCommand sqlCommand = new SqlCommand(query, Dbconnect.con);
+                sqlCommand.ExecuteNonQuery();
+                Dbconnect.con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                Dbconnect.con.Close();
+                throw;
+            }
+        }
 
     }
 }
