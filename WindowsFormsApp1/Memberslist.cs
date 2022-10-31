@@ -104,5 +104,20 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Please select a member to edit");
             }
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox1.Text=="")
+            {
+                refresh();
+            }
+            else
+            {
+                Maindao maindao = new Maindao();
+                dataGridView1.AutoGenerateColumns = false;
+                dataGridView1.DataSource = maindao.fillmembertabbyname(textBox1.Text);
+
+            }
+        }
     }
 }

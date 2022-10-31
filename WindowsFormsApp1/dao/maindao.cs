@@ -161,6 +161,25 @@ namespace WindowsFormsApp1.dao
                 throw;
             }
         }
+        public DataTable fillmembertabbyname(string name)
+        {
+            try
+            {
+                string query = "select * from members where name like '"+name+""+"%"+"'";
+                SqlCommand sqlCommand = new SqlCommand(query, Dbconnect.con);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                Dbconnect.con.Close();
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                Dbconnect.con.Close();
+                throw;
+            }
+        }
         public void deletemember(string ids)
         {
             try
