@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using WindowsFormsApp1.dao;
 
 namespace WindowsFormsApp1
@@ -24,15 +25,40 @@ namespace WindowsFormsApp1
         {
             Maindao maindao = new Maindao();
             textBox1.Text = maindao.getmemcount();
-            textBox2.Text = maindao.getavgincome();
+            if (textBox3.Text=="")
+            {
+                textBox2.Text = maindao.getavgincome(60);
+            }
+            else
+            {
+                textBox2.Text = maindao.getavgincome(int.Parse(textBox3.Text));
+            }
+            
             setmaintable();
         }
         public void setmaintable()
         {
             DataTable dt = new DataTable();
             Maindao maindao=new Maindao();
-            dt =maindao.maintable();
-            dataGridView1.DataSource = dt;
+            try
+            {
+                if (textBox4.Text == "")
+                {
+                    dt = maindao.maintable(3);
+                }
+                else
+                {
+                    dt = maindao.maintable(int.Parse(textBox4.Text));
+                }
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Input should be a number");
+                textBox4.Text = "";
+                throw;
+            }
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -43,6 +69,34 @@ namespace WindowsFormsApp1
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            Maindao maindao = new Maindao();
+            try
+            {
+                if (textBox3.Text == "")
+                {
+                    textBox2.Text = maindao.getavgincome(60);
+                }
+                else
+                {
+                    textBox2.Text = maindao.getavgincome(int.Parse(textBox3.Text));
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Input should be a number");
+                textBox3.Text = "";
+                throw;
+            }
+            
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            setmaintable();
         }
     }
 }

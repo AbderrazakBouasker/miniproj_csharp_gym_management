@@ -43,7 +43,7 @@ namespace WindowsFormsApp1.dao
             return count;
         }
 
-        public string getavgincome() 
+        public string getavgincome(int cost) 
         {
             DateTime localDate = DateTime.Now;
             DateTime enddate;
@@ -65,18 +65,18 @@ namespace WindowsFormsApp1.dao
                 compareday=enddate.Day.CompareTo(localDate.Day);
                 if (compareyear > 0)
                 {
-                    income += 60;
+                    income += cost;
                 }else if (compareyear == 0)
                 {
                     if (comparemonth>0)
                     {
-                        income += 60;
+                        income += cost;
                     }
                     else if (comparemonth==0)
                     {
                         if (compareday > 0)
                         {
-                            income += 60;
+                            income += cost;
                         }
                     }
                 }
@@ -102,7 +102,7 @@ namespace WindowsFormsApp1.dao
             }
         }
 
-        public DataTable maintable()
+        public DataTable maintable(int daysdiff)
         {
             try
             {
@@ -125,7 +125,7 @@ namespace WindowsFormsApp1.dao
                     tempenddate = row["enddate"].ToString();
                     startdate = DateTime.Parse(tempstartdate);
                     enddate = DateTime.Parse(tempenddate);
-                    if ((enddate-startdate).TotalDays <= 3)
+                    if ((enddate-startdate).TotalDays <= daysdiff)
                     {
                         dataTable2.Rows.Add(row["name"], row["lastname"], row["enddate"]);
                     }
