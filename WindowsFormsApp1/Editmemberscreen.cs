@@ -27,16 +27,92 @@ namespace WindowsFormsApp1
             textBox1.Text= idnumber;
             textBox2.Text= name;
             textBox5.Text= lastname;
-            textBox3.Text= company;
-            textBox4.Text= reduction;
             monthCalendar1.SetDate(DateTime.Parse(startdate));
             monthCalendar2.SetDate(DateTime.Parse(enddate));
+            if (company=="")
+            {
+                textBox3.Text = "Optional";
+                textBox3.ForeColor = Color.Gray;
+            }
+            else
+            {
+                textBox3.ForeColor = Color.Black;
+                textBox3.Text = company;
+            }
+            if (reduction=="")
+            {
+                textBox4.Text = "Optional";
+                textBox4.ForeColor = Color.Gray;
+            }
+            else
+            {
+                textBox4.ForeColor = Color.Black;
+                textBox4.Text = reduction;
+            }
         }
         private void button1_Click(object sender, EventArgs e)
         {
             Maindao maindao = new Maindao();
-            maindao.editmember(id, textBox1.Text, textBox2.Text, textBox5.Text, textBox3.Text, textBox4.Text, monthCalendar1.SelectionStart.ToShortDateString(), monthCalendar2.SelectionStart.ToShortDateString());
-            MessageBox.Show("Member edited successfully");
+            if (textBox1.Text==""|| textBox2.Text==""|| textBox5.Text=="")
+            {
+                MessageBox.Show("Please fill all necessary fields");
+            }
+            else if (monthCalendar2.SelectionStart <= monthCalendar1.SelectionStart)
+            {
+                MessageBox.Show("Start date should be earlier than end date");
+            }
+            else
+            {
+                string tempbox3 = textBox3.Text;
+                string tempbox4 = textBox4.Text;
+                if (textBox3.Text == "Optional")
+                {
+                    tempbox3 = "";
+                }
+                if (textBox4.Text == "Optional")
+                {
+                    tempbox4 = "null";
+                }
+                maindao.editmember(id, textBox1.Text, textBox2.Text, textBox5.Text, tempbox3, tempbox4, monthCalendar1.SelectionStart.ToShortDateString(), monthCalendar2.SelectionStart.ToShortDateString());
+                MessageBox.Show("Member edited successfully");
+            }
+            
+        }
+
+        private void textBox3_Enter(object sender, EventArgs e)
+        {
+            if (textBox3.Text == "Optional")
+            {
+                textBox3.Text = "";
+                textBox3.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBox3_Leave(object sender, EventArgs e)
+        {
+            if (textBox3.Text == "")
+            {
+                textBox3.Text = "Optional";
+                textBox3.ForeColor = Color.Gray;
+            }
+        }
+
+        private void textBox4_Leave(object sender, EventArgs e)
+        {
+            if (textBox4.Text == "")
+            {
+                textBox4.Text = "Optional";
+                textBox4.ForeColor = Color.Gray;
+            }
+        }
+
+        private void textBox4_Enter(object sender, EventArgs e)
+        {
+            if (textBox4.Text == "Optional")
+            {
+                textBox4.Text = "";
+                textBox4.ForeColor = Color.Black;
+            }
         }
     }
 }

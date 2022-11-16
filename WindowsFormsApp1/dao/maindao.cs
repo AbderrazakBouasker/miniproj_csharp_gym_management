@@ -201,14 +201,15 @@ namespace WindowsFormsApp1.dao
             try
             {
                 String query = "UPDATE members SET idnumber = " + idnumber + ", name ='" + name + "' , lastname ='" + lastname + "', companyname ='" + company + "', paymentreduction =" + reduction + ", startdate ='" + startdate + "', enddate = '" + enddate + "' WHERE id =" + id;
+                Console.WriteLine(query);
                 SqlCommand sqlCommand = new SqlCommand(query, Dbconnect.con);
                 sqlCommand.ExecuteNonQuery();
                 Dbconnect.con.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
                 Dbconnect.con.Close();
+                MessageBox.Show(ex.Message);
                 throw;
             }
         }

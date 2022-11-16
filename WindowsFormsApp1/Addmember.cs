@@ -25,7 +25,7 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("Please fill all necessary fields");
             }
-            else if (monthCalendar2.SelectionStart < monthCalendar1.SelectionStart)
+            else if (monthCalendar2.SelectionStart <= monthCalendar1.SelectionStart)
             {
                 MessageBox.Show("Start date should be earlier than end date");
             }

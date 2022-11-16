@@ -61,17 +61,25 @@
             // 
             // textBox3
             // 
+            this.textBox3.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.textBox3.Location = new System.Drawing.Point(12, 328);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(151, 20);
             this.textBox3.TabIndex = 0;
+            this.textBox3.Text = "Optional";
+            this.textBox3.Enter += new System.EventHandler(this.textBox3_Enter);
+            this.textBox3.Leave += new System.EventHandler(this.textBox3_Leave);
             // 
             // textBox4
             // 
+            this.textBox4.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.textBox4.Location = new System.Drawing.Point(12, 416);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(151, 20);
             this.textBox4.TabIndex = 0;
+            this.textBox4.Text = "Optional";
+            this.textBox4.Enter += new System.EventHandler(this.textBox4_Enter);
+            this.textBox4.Leave += new System.EventHandler(this.textBox4_Leave);
             // 
             // label1
             // 
