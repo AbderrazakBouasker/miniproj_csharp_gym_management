@@ -43,6 +43,11 @@ namespace WindowsFormsApp1
                 }
                 Maindao maindao = new Maindao();
                 maindao.addmember(textBox3.Text, textBox1.Text, textBox2.Text, tempbox4, tempbox5, monthCalendar1.SelectionRange.Start.ToShortDateString(), monthCalendar2.SelectionRange.Start.ToShortDateString());
+                textBox1.Text = "";
+                textBox2.Text = "";
+                textBox3.Text = "";
+                textBox4.Text = "";
+                textBox5.Text = "";
             }
         }
 
