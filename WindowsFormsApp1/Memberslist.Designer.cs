@@ -81,49 +81,42 @@
             this.idnumber.DataPropertyName = "idnumber";
             this.idnumber.HeaderText = "Id number";
             this.idnumber.Name = "idnumber";
-            this.idnumber.ReadOnly = true;
             // 
             // name
             // 
             this.name.DataPropertyName = "name";
             this.name.HeaderText = "Name";
             this.name.Name = "name";
-            this.name.ReadOnly = true;
             // 
             // lastname
             // 
             this.lastname.DataPropertyName = "lastname";
             this.lastname.HeaderText = "Last name";
             this.lastname.Name = "lastname";
-            this.lastname.ReadOnly = true;
             // 
             // company
             // 
             this.company.DataPropertyName = "companyname";
             this.company.HeaderText = "Company";
             this.company.Name = "company";
-            this.company.ReadOnly = true;
             // 
             // paymentreduction
             // 
             this.paymentreduction.DataPropertyName = "paymentreduction";
             this.paymentreduction.HeaderText = "Payment reduction";
             this.paymentreduction.Name = "paymentreduction";
-            this.paymentreduction.ReadOnly = true;
             // 
             // startdate
             // 
             this.startdate.DataPropertyName = "startdate";
             this.startdate.HeaderText = "Start date";
             this.startdate.Name = "startdate";
-            this.startdate.ReadOnly = true;
             // 
             // enddate
             // 
             this.enddate.DataPropertyName = "enddate";
             this.enddate.HeaderText = "End date";
             this.enddate.Name = "enddate";
-            this.enddate.ReadOnly = true;
             // 
             // checkbox
             // 
@@ -135,7 +128,6 @@
             this.id.DataPropertyName = "id";
             this.id.HeaderText = "Id";
             this.id.Name = "id";
-            this.id.ReadOnly = true;
             this.id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.id.Width = 5;
             // 

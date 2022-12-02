@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -56,6 +57,10 @@ namespace WindowsFormsApp1
             if (textBox1.Text==""|| textBox2.Text==""|| textBox5.Text=="")
             {
                 MessageBox.Show("Please fill all necessary fields");
+            }
+            else if (!Regex.IsMatch(textBox1.Text, @"^\d+$") || !Regex.IsMatch(textBox4.Text, @"^\d+$"))
+            {
+                MessageBox.Show("Id and reduction fields input should be numeric");
             }
             else if (monthCalendar2.SelectionStart <= monthCalendar1.SelectionStart)
             {

@@ -5,10 +5,12 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using WindowsFormsApp1.dao;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WindowsFormsApp1
 {
@@ -46,6 +48,11 @@ namespace WindowsFormsApp1
                 {
                     dt = maindao.maintable(3);
                 }
+                else if (!Regex.IsMatch(textBox4.Text, @"^\d+$"))
+                {
+                    MessageBox.Show("Days field input should be integer");
+                    textBox4.Text = "";
+                }
                 else
                 {
                     dt = maindao.maintable(int.Parse(textBox4.Text));
@@ -79,6 +86,11 @@ namespace WindowsFormsApp1
                 if (textBox3.Text == "")
                 {
                     textBox2.Text = maindao.getavgincome(60);
+                }
+                else if (!Regex.IsMatch(textBox3.Text, @"^\d+$"))
+                {
+                    MessageBox.Show("Cost field input should be integer");
+                    textBox3.Text = "";
                 }
                 else
                 {
