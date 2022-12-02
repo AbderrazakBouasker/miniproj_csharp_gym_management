@@ -97,6 +97,12 @@
     <Compile Include="Addmember.Designer.cs">
       <DependentUpon>Addmember.cs</DependentUpon>
     </Compile>
+    <Compile Include="Changepassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Changepassword.Designer.cs">
+      <DependentUpon>Changepassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Creatuserscreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     </Compile>
     <EmbeddedResource Include="Addmember.resx">
       <DependentUpon>Addmember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Changepassword.resx">
+      <DependentUpon>Changepassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Creatuserscreen.resx">
       <DependentUpon>Creatuserscreen.cs</DependentUpon>

@@ -31,7 +31,7 @@ namespace WindowsFormsApp1
                 bool b = logindao.login(textBox1.Text,textBox2.Text);
                 if (b)
                 {
-                    Dashboard dashboard = new Dashboard();
+                    Dashboard dashboard = new Dashboard(textBox1.Text,textBox2.Text);
                     dashboard.Show();
                     this.Hide();
                 }

@@ -11,6 +11,9 @@ namespace WindowsFormsApp1.dao
 {
     internal class Logindao
     {
+        string id;
+        string name;
+        string password;
         public Logindao()
         {
             try
@@ -32,6 +35,12 @@ namespace WindowsFormsApp1.dao
             SqlDataAdapter reader = new SqlDataAdapter(query, Dbconnect.con);
             DataTable dataTable = new DataTable();
             reader.Fill(dataTable);
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                id = dr["id"].ToString();
+                name = dr["username"].ToString();
+                this.password = dr["password"].ToString();
+            }
             if (dataTable.Rows.Count > 0)
             {
                 Dbconnect.con.Close();
@@ -105,6 +114,24 @@ namespace WindowsFormsApp1.dao
             }
             Dbconnect.con.Close();
             return password;
+        }
+
+        public void changepassword(string newpass)
+        {
+            try
+            {
+                Dbconnect.con.Open();
+                string query = "update logininfo set password='"+newpass+"' where id="+id;
+                SqlCommand sqlCommand=new SqlCommand(query,Dbconnect.con);
+                sqlCommand.ExecuteNonQuery();
+                Dbconnect.con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                Dbconnect.con.Close();
+                throw;
+            }
         }
 
     }

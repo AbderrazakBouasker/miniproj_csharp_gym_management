@@ -12,11 +12,21 @@ namespace WindowsFormsApp1
 {
     public partial class Dashboard : Form
     {
+        string name;
+        string password;
         public Dashboard()
         {
             InitializeComponent();
             mainscreen1.BringToFront();
             Sidepanel.Hide();
+        }
+        public Dashboard(string name,string password)
+        {
+            InitializeComponent();
+            mainscreen1.BringToFront();
+            Sidepanel.Hide();
+            this.name = name;
+            this.password = password;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -55,6 +65,16 @@ namespace WindowsFormsApp1
             Loginscreen loginscreen=new Loginscreen();
             loginscreen.Show();
             this.Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Sidepanel.Show();
+            Sidepanel.Height = button5.Height;
+            Sidepanel.Top = button5.Top;
+            Changepassword changepassword = new Changepassword(name,password);
+            changepassword.Show();
+
         }
     }
 }
