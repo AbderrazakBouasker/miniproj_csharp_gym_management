@@ -106,9 +106,10 @@ namespace WindowsFormsApp1.dao
         {
             try
             {
-                string tempstartdate;
+                DateTime localDate = DateTime.Now;
+                //string tempstartdate;
                 string tempenddate;
-                DateTime startdate;
+                //DateTime startdate;
                 DateTime enddate;
                 string query = "select name,lastname,startdate,enddate from members";
                 SqlCommand sqlCommand1 = new SqlCommand(query, Dbconnect.con);
@@ -121,11 +122,11 @@ namespace WindowsFormsApp1.dao
                 adapter.Fill(dataTable);
                 foreach (DataRow row in dataTable.Rows)
                 {
-                    tempstartdate = row["startdate"].ToString();
+                   // tempstartdate = row["startdate"].ToString();
                     tempenddate = row["enddate"].ToString();
-                    startdate = DateTime.Parse(tempstartdate);
+                    //startdate = DateTime.Parse(tempstartdate);
                     enddate = DateTime.Parse(tempenddate);
-                    if ((enddate-startdate).TotalDays <= daysdiff)
+                    if ((enddate-localDate).TotalDays <= daysdiff)
                     {
                         dataTable2.Rows.Add(row["name"], row["lastname"], row["enddate"]);
                     }

@@ -58,7 +58,7 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("Please fill all necessary fields");
             }
-            else if (!Regex.IsMatch(textBox1.Text, @"^\d+$") || !Regex.IsMatch(textBox4.Text, @"^\d+$"))
+            else if (!Regex.IsMatch(textBox1.Text, @"^\d+$") || !Regex.IsMatch(textBox4.Text, @"^\d+$") && !textBox4.Text.Equals("Optional"))
             {
                 MessageBox.Show("Id and reduction fields input should be numeric");
             }
