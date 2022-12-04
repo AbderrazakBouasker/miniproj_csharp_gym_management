@@ -214,6 +214,40 @@ namespace WindowsFormsApp1.dao
                 throw;
             }
         }
+        public void addmusic(string title,string link)
+        {
+            try
+            {
+                string query = "insert into music (title,link) values ('"+title+"','"+link+"')";
+                SqlCommand sqlCommand = new SqlCommand(query, Dbconnect.con);
+                sqlCommand.ExecuteNonQuery();
+                Dbconnect.con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                Dbconnect.con.Close();
+            }
+        }
+        public DataTable fillmusictab()
+        {
+            try
+            {
+                string query = "select * from music";
+                SqlCommand sqlCommand = new SqlCommand(query, Dbconnect.con);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                Dbconnect.con.Close();
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                Dbconnect.con.Close();
+                throw;
+            }
+        }
 
     }
 }
