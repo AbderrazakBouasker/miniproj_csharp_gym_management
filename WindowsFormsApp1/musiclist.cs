@@ -16,7 +16,7 @@ namespace WindowsFormsApp1
     {
         string id;
         string title;
-        string link;
+        string link="";
         public musiclist()
         {
             InitializeComponent();
@@ -31,11 +31,18 @@ namespace WindowsFormsApp1
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string html = "<html> <head>";
-            html += " <meta content='IE=Edge' http-equiv='X-UA-Compatible'/> ";
-            html += " <iframe id='video' src= 'https://www.youtube.com/embed/{0}' width='369' height='301' frameborder='0' allowfullscreen  /iframe> ";
-            html += " </body>  </html> ";
-            this.webBrowser1.DocumentText = string.Format(html, link.Split('=')[1]);
+            if (link.Equals(""))
+            {
+                MessageBox.Show("Select and entry first");
+            }
+            else
+            {
+                string html = "<html> <head>";
+                html += " <meta content='IE=Edge' http-equiv='X-UA-Compatible'/> ";
+                html += " <iframe id='video' src= 'https://www.youtube.com/embed/{0}' width='369' height='301' frameborder='0' allowfullscreen  /iframe> ";
+                html += " </body>  </html> ";
+                this.webBrowser1.DocumentText = string.Format(html, link.Split('=')[1]);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
