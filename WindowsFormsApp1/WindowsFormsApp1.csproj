@@ -148,6 +148,12 @@
     <Compile Include="Memberslist.Designer.cs">
       <DependentUpon>Memberslist.cs</DependentUpon>
     </Compile>
+    <Compile Include="musiclist.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="musiclist.Designer.cs">
+      <DependentUpon>musiclist.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recoverscreen.cs">
@@ -182,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Memberslist.resx">
       <DependentUpon>Memberslist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="musiclist.resx">
+      <DependentUpon>musiclist.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -76,5 +76,14 @@ namespace WindowsFormsApp1
             changepassword.Show();
 
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Sidepanel.Show();
+            Sidepanel.Height = button6.Height;
+            Sidepanel.Top = button6.Top;
+            musiclist1.BringToFront();
+            //.refresh();
+        }
     }
 }
