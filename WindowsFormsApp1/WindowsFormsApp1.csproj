@@ -111,6 +111,7 @@
     </Compile>
     <Compile Include="dao\Logindao.cs" />
     <Compile Include="dao\Maindao.cs" />
+    <Compile Include="dao\Musicdao.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>

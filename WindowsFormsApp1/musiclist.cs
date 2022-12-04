@@ -24,9 +24,9 @@ namespace WindowsFormsApp1
         }
         public void refresh()
         {
-            Maindao maindao=new Maindao();
+            Musicdao musicdao = new Musicdao();
             dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.DataSource = maindao.fillmusictab();
+            dataGridView1.DataSource = musicdao.fillmusictab();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -50,8 +50,8 @@ namespace WindowsFormsApp1
             }
             else
             {
-                Maindao maindao = new Maindao();
-                maindao.addmusic(textBox1.Text, textBox2.Text);
+                Musicdao musicdao = new Musicdao();
+                musicdao.addmusic(textBox1.Text, textBox2.Text);
                 MessageBox.Show("Added successfully");
                 textBox1.Text = "";
                 textBox2.Text = "";
@@ -75,8 +75,8 @@ namespace WindowsFormsApp1
             }
             else
             {
-                Maindao maindao = new Maindao();
-                maindao.deletemusic(textBox3.Text);
+                Musicdao musicdao=new Musicdao();
+                musicdao.deletemusic(textBox3.Text);
                 textBox3.Text = "";
                 textBox4.Text = "";
                 textBox5.Text = "";
@@ -97,8 +97,8 @@ namespace WindowsFormsApp1
             }
             else
             {
-                Maindao maindao = new Maindao();
-                maindao.editmusic(textBox3.Text, textBox4.Text, textBox5.Text);
+                Musicdao musicdao = new Musicdao();
+                musicdao.editmusic(textBox3.Text, textBox4.Text, textBox5.Text);
                 MessageBox.Show("Edited successfully");
                 refresh();
             }
