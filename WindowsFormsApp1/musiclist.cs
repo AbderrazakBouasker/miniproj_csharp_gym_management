@@ -14,6 +14,9 @@ namespace WindowsFormsApp1
 {
     public partial class musiclist : UserControl
     {
+        string id;
+        string title;
+        string link;
         public musiclist()
         {
             InitializeComponent();
@@ -32,7 +35,7 @@ namespace WindowsFormsApp1
             html += " <meta content='IE=Edge' http-equiv='X-UA-Compatible'/> ";
             html += " <iframe id='video' src= 'https://www.youtube.com/embed/{0}' width='369' height='301' frameborder='0' allowfullscreen  /iframe> ";
             html += " </body>  </html> ";
-            this.webBrowser1.DocumentText = string.Format(html, textBox2.Text.Split('=')[1]);
+            this.webBrowser1.DocumentText = string.Format(html, link.Split('=')[1]);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -52,6 +55,51 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Added successfully");
                 textBox1.Text = "";
                 textBox2.Text = "";
+                refresh();
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowindex = dataGridView1.CurrentCell.RowIndex;
+            this.id=textBox3.Text= dataGridView1.Rows[rowindex].Cells[0].Value.ToString();
+            this.title=textBox4.Text = dataGridView1.Rows[rowindex].Cells[1].Value.ToString();
+            this.link=textBox5.Text = dataGridView1.Rows[rowindex].Cells[2].Value.ToString();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (textBox3.Text.Equals(""))
+            {
+                MessageBox.Show("Select an entry first");
+            }
+            else
+            {
+                Maindao maindao = new Maindao();
+                maindao.deletemusic(textBox3.Text);
+                textBox3.Text = "";
+                textBox4.Text = "";
+                textBox5.Text = "";
+                MessageBox.Show("Deleted successfully");
+                refresh();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (textBox4.Text.Equals("") || textBox5.Text.Equals(""))
+            {
+                MessageBox.Show("Fill the Title and link fields");
+            }
+            else if (!Regex.IsMatch(textBox5.Text, @"[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)"))
+            {
+                MessageBox.Show("Please enter a valid link in the form of https://www.");
+            }
+            else
+            {
+                Maindao maindao = new Maindao();
+                maindao.editmusic(textBox3.Text, textBox4.Text, textBox5.Text);
+                MessageBox.Show("Edited successfully");
                 refresh();
             }
         }
